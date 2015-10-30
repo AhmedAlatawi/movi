@@ -1,8 +1,11 @@
 doctype
 head
-    title Movi
-    link(rel="stylesheet", href="/vendor/bootstrap-css/css/bootstrap.min.css")
-    base(href="/")
+  title Movi
+  link(rel="stylesheet", href="/vendor/bootstrap-css/css/bootstrap.min.css")
+  link(rel="stylesheet", href="/assets/css/main.css")
+  base(href="/")
 body(ng-app="app")
-    h1 Hello, World!
-    include includes/scripts
+  include includes/header
+  div(ng-view)
+  include includes/footer
+  include includes/scripts

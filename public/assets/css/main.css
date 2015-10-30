@@ -1,0 +1,29 @@
+.navbar-default {
+  background-color: #fff;
+  border: 0;
+}
+.navbar-decor {
+  height: 12px;
+  background-color: #c7254e;
+}
+.navbar-brand {
+  margin-top: 12px;
+  text-decoration: none;
+}
+.navbar-brand .glyphicon-film {
+  color: #c7254e;
+  font-size: 1.8em;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.navbar-brand h1 {
+  display: inline;
+  margin-left: 12px;
+  color: #222;
+}
+.navbar-brand .small {
+  color: #333;
+  font-size: 1em;
+  margin: 6px 0 0 -6px;
+}
