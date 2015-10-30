@@ -13,5 +13,10 @@
     "mean"
   ],
   "author": "Giacomo Cusinato",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.2.3",
+    "passport": "^0.3.0"
+  }
 }
