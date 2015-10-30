@@ -1,0 +1,17 @@
+{
+  "name": "movi",
+  "version": "1.0.0",
+  "description": "A movie tracker built with the MEAN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "movi",
+    "movie",
+    "mean"
+  ],
+  "author": "Giacomo Cusinato",
+  "license": "MIT"
+}
