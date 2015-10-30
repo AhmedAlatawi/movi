@@ -1,9 +1,19 @@
 # movi
 A movie tracker application built with the MEAN stack.
 
-## Main frameworks/library
+![MEAN Stack logo](https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/6120/large/1435723400/mean-stack-die-cut.png)
 
-TODO
+## Main technologies
+- **Front-end**
+  - [AngularJS](https://angularjs.org/)
+  - [Bootstrap](http://getbootstrap.com/)
+  - [Stylus](https://learnboost.github.io/stylus/)
+  - [Bower](http://bower.io/)
+- **Back-end**
+  - [Node.js](https://nodejs.org/en/)
+  - [Express](http://expressjs.com/)
+  - [MongoDB](https://www.mongodb.org/)
+  - [Mongoose](http://mongoosejs.com/)
 
 
 ## Project structure
