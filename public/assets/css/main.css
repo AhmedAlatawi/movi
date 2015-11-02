@@ -1,6 +1,9 @@
 body {
   font-weight: 200;
 }
+main {
+  padding-top: 64px;
+}
 .btn-default {
   color: #fff;
   background-color: #c7254e;
@@ -59,4 +62,12 @@ body {
 }
 #navbar-auth .dropdown-menu input {
   margin-bottom: 12px;
+}
+@media (max-width: 768px) {
+  .opened main {
+    padding-top: 296px;
+  }
+  .opened .btn-outline {
+    margin-top: 32px;
+  }
 }

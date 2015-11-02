@@ -19,6 +19,9 @@ transform-rotate(degrees)
 body
   font-weight 200
 
+main
+  padding-top 64px
+
 .btn-default
   color white
   background-color brand-color
@@ -75,4 +78,10 @@ body
     input
       margin-bottom 12px
 
-
+// Move the main tag as the dropdown expands
+@media (max-width: 768px)
+  .opened
+    main
+      padding-top: 296px
+    .btn-outline
+      margin-top 32px
