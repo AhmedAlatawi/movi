@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Movi - Keep track of your movies</title>
+  <meta name="description" content="Keep track of the movies you watch. Movi interacts with a large
+    movie database so you can save and manage your favourites flicks in one web application!">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/"/>
+
+  <link rel="stylesheet" href="vendor/bootstrap-css/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body ng-app="app">
+
+<header class="navbar navbar-default navbar-static-top">
+  <div class="navbar-decor">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">
+          <i class="glyphicon glyphicon-film pull-left"></i>
+          <h1>MOVI</h1>
+          <p class="small">Keep track of your movies</p>
+        </a>
+      </div>
+      <div ng-include="'app/views/navbar-login.html'"></div>
+    </div>
+  </div>
+</header>
+
+<main ng-view></main>
+
+<footer class="container text-center">
+  <hr/>
+  <p>&copy; Giacomo Cusinato 2015</p>
+</footer>
+
+<!-- Bower packages -->
+<script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="vendor/bootstrap-css/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="vendor/angular/angular.js"></script>
+<script type="text/javascript" src="vendor/angular-route/angular-route.js"></script>
+
+<!-- Angular scripts -->
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/controllers/navbar-login.ctrl.js"></script>
+
+</body>
+</html>
