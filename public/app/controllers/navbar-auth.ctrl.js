@@ -1,5 +1,6 @@
 "use strict";
 
-angular.module('app').controller('NavbarLoginCtrl', function() {
+angular.module('app')
+    .controller('NavbarAuthCtrl', function() {
 
-});
+    });
