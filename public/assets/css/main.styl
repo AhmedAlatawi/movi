@@ -1,12 +1,48 @@
+//--------------------------------
 // Global variables
+//--------------------------------
 brand-color = #c7254e
+hovered-color = #d74a6d
 
+//--------------------------------
 // Mixins
+//--------------------------------
 transform-rotate(degrees)
   -webkit-transform rotate(degrees)
   -ms-transform rotate(degrees)
   transform rotate(degrees)
 
+
+//--------------------------------
+// General styles
+//--------------------------------
+body
+  font-weight 200
+
+.btn-default
+  color white
+  background-color brand-color
+  border none
+
+.btn-default:hover
+  color white
+  background-color hovered-color
+  border none
+
+.btn-outline
+  color brand-color
+  background-color transparent
+  border 1px solid brand-color
+
+.btn-outline:hover
+  color hovered-color
+  background-color transparent
+  border 1px solid hovered-color
+
+
+//--------------------------------
+// Header styles
+//--------------------------------
 .navbar-default
   background-color white
   border 0
@@ -15,7 +51,7 @@ transform-rotate(degrees)
   height 12px
   background-color brand-color
 
-.navbar-brand
+.navbar-header
   margin-top 12px
   text-decoration none
   .glyphicon-film
@@ -30,3 +66,13 @@ transform-rotate(degrees)
     color #333
     font-size 1em
     margin 6px 0 0 -6px
+
+#navbar-auth
+  margin-top 32px
+  .dropdown-menu
+    padding 12px
+    width 300px
+    input
+      margin-bottom 12px
+
+

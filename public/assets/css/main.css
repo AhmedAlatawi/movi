@@ -1,3 +1,26 @@
+body {
+  font-weight: 200;
+}
+.btn-default {
+  color: #fff;
+  background-color: #c7254e;
+  border: none;
+}
+.btn-default:hover {
+  color: #fff;
+  background-color: #d74a6d;
+  border: none;
+}
+.btn-outline {
+  color: #c7254e;
+  background-color: transparent;
+  border: 1px solid #c7254e;
+}
+.btn-outline:hover {
+  color: #d74a6d;
+  background-color: transparent;
+  border: 1px solid #d74a6d;
+}
 .navbar-default {
   background-color: #fff;
   border: 0;
@@ -6,24 +29,34 @@
   height: 12px;
   background-color: #c7254e;
 }
-.navbar-brand {
+.navbar-header {
   margin-top: 12px;
   text-decoration: none;
 }
-.navbar-brand .glyphicon-film {
+.navbar-header .glyphicon-film {
   color: #c7254e;
   font-size: 1.8em;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.navbar-brand h1 {
+.navbar-header h1 {
   display: inline;
   margin-left: 12px;
   color: #222;
 }
-.navbar-brand .small {
+.navbar-header .small {
   color: #333;
   font-size: 1em;
   margin: 6px 0 0 -6px;
+}
+#navbar-auth {
+  margin-top: 32px;
+}
+#navbar-auth .dropdown-menu {
+  padding: 12px;
+  width: 300px;
+}
+#navbar-auth .dropdown-menu input {
+  margin-bottom: 12px;
 }
