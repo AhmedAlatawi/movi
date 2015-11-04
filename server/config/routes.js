@@ -1,16 +1,12 @@
 "use strict";
 
-var passport = require('passport');
+var passport = require('passport'),
+    auth = require('../controllers/auth.js');
+
 
 module.exports = function(app) {
 
-    app.get('/login', function(req, res) {
-        passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/login',
-            failureFlash: true
-        });
-    });
+    app.post('/login', auth.authenticate);
 
     app.get('*', function(req, res) {
         res.render('index.html');
