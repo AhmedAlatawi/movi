@@ -14,7 +14,7 @@ var config = require('./server/config/environment')[env];
 require('./server/config/express')(app, config);
 require('./server/config/routes')(app);
 require('./server/config/mongoose')(config);
-
+require('./server/config/passport')();
 
 // Run the server!
 app.listen(config.port);
