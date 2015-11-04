@@ -1,7 +1,7 @@
 "use strict";
 
-var express = require('express');
-var stylus = require('stylus');
+var express = require('express'),
+        stylus = require('stylus');
 
 module.exports = function(app, config) {
     function compile(str, path) {
