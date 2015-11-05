@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('app')
-    .factory('AuthService', function($http, $q) {
+    .factory('AuthService', function($http, $q, $state) {
 
         var user = null;
 
@@ -37,6 +37,8 @@ angular.module('app')
                 .success(function(data) {
                     if (data.success) {
                         user = data.user;
+                        $state.go('tracker');
+
                         deferred.resolve(user);
                     } else {
                         deferred.reject();
@@ -58,7 +60,19 @@ angular.module('app')
             }
         }
 
-        function register() {
-            // TODO
+        function register(userData) {
+            var deferred = $q.defer();
+
+            $http.post('/register', userData)
+                .success(function(data) {
+                    if (data.success) {
+                        login(userData.username, userData.password);
+                    }
+                })
+                .error(function() {
+                   deferred.reject();
+                });
+
+            return deferred.promise;
         }
     });

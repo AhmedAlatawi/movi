@@ -1,8 +1,16 @@
-    "use strict";
+"use strict";
 
-    angular.module('app')
+angular.module('app')
+    .controller('SignupCtrl', function(AuthService) {
+        var vm = this;
 
-
-        .controller('SignupCtrl', function() {
-
-        });
+        vm.register = function(fullname, username, email, password, passwordcheck) {
+            AuthService.register({
+                fullName: fullname,
+                username: username,
+                email: email,
+                password: password,
+                passwordCheck: passwordcheck
+            });
+        }
+    });
