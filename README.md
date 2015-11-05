@@ -1,5 +1,6 @@
 # movi
 A movie tracker application built with the MEAN stack.
+The main purpose of the project is to learn the basics and the insights of the MEAN application stack.
 
 ![MEAN Stack logo](https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/6120/large/1435723400/mean-stack-die-cut.png)
 
@@ -14,6 +15,7 @@ A movie tracker application built with the MEAN stack.
   - [Express](http://expressjs.com/)
   - [MongoDB](https://www.mongodb.org/)
   - [Mongoose](http://mongoosejs.com/)
+  - [Passport](http://passportjs.org/)
 
 
 ## Project structure
