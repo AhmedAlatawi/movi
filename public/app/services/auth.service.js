@@ -18,13 +18,16 @@ angular.module('app')
         }
 
         function getLoggedUser() {
+            var deferred = $q.defer();
+
             if (!user) {
                 $http.get('/logged-user')
                     .success(function(data) {
                         user = data;
+                        deferred.resolve(user);
                     });
             }
-            return user;
+            return deferred.promise;
         }
 
         function login(username, password) {
