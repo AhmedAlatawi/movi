@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('app', ['ui.router'])
+angular.module('app', ['ngAnimate', 'ui.router', 'toastr'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('tracker', {

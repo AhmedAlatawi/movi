@@ -24,6 +24,14 @@ main {
   background-color: transparent;
   border: 1px solid #d74a6d;
 }
+.success-toast-brand {
+  background-color: #c7254e;
+  top: 84px;
+}
+.error-toast-brand {
+  background-color: #c7254e;
+  top: 12px;
+}
 .navbar-default {
   background-color: #fff;
   border: 0;
@@ -74,5 +82,8 @@ main {
   }
   .opened .btn-outline {
     margin-top: 32px;
+  }
+  .opened .logout-nav .small {
+    display: block;
   }
 }

@@ -30,6 +30,7 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="vendor/bootstrap-css/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="vendor/angular-toastr/dist/angular-toastr.css"/>
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body ng-app="app" opened-toggle>
@@ -71,13 +72,22 @@
 <script type="text/javascript" src="vendor/bootstrap-css/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="vendor/angular/angular.js"></script>
 <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="vendor/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script type="text/javascript" src="vendor/angular-animate/angular-animate.js"></script>
 
 <!-- Angular scripts -->
 <script type="text/javascript" src="app/app.js"></script>
+
+<!-- Angular controllers -->
 <script type="text/javascript" src="app/controllers/navbar-auth.ctrl.js"></script>
 <script type="text/javascript" src="app/controllers/signup.ctrl.js"></script>
+
+<!-- Angular directives -->
 <script type="text/javascript" src="app/directives/opened-toggle.js"></script>
+
+<!-- Angular services -->
 <script type="text/javascript" src="app/services/auth.service.js"></script>
+<script type="text/javascript" src="app/services/toastr.service.js"></script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('app')
-    .controller('NavbarAuthCtrl', function(AuthService, $http) {
+    .controller('NavbarAuthCtrl', function(AuthService, toastrService) {
         var vm = this;
 
         //  Verify if a session is opened first of all
@@ -18,9 +18,10 @@ angular.module('app')
             AuthService.login(username, password)
                 .then(function(user) {
                     vm.loggedUser = user;
+                    toastrService.success('You have successfully logged in.', 'Success!');
                 })
                 .catch(function() {
-                    console.log('Invalid login!');
+                    toastrService.error('Please check your credentials.', 'Something went wrong!');
                 });
         };
 
