@@ -17,11 +17,19 @@
       </ul>
     </li>
     <li>
-      <span class="navbar-btn"><a href="#" class="btn btn-lg btn-default btn-outline"
-            ui-sref="signup">Sign Up</a></span>
+      <span class="navbar-btn">
+        <a href="#" class="btn btn-lg btn-default btn-outline" ui-sref="signup">
+          Sign Up
+        </a>
+      </span>
     </li>
   </ul>
-  <div class="pull-right" ng-show="authCtrl.isLoggedIn()">
-    <h3>TODO</h3>
+  <div class="nav navbar-nav navbar-right logout-nav" ng-show="authCtrl.isLoggedIn()">
+    <p class="small">Hi, {{ authCtrl.loggedUser.username }}!</p>
+    <span class="navbar-btn">
+      <a href="#" class="btn btn-lg btn-default btn-outline" ng-click="">
+        Log Out
+      </a>
+    </span>
   </div>
 </div>

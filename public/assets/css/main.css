@@ -63,6 +63,11 @@ main {
 #navbar-auth .dropdown-menu input {
   margin-bottom: 12px;
 }
+.logout-nav .small {
+  display: inline-block;
+  font-size: 1.4em;
+  margin-right: 12px;
+}
 @media (max-width: 768px) {
   .opened main {
     padding-top: 296px;
