@@ -18,8 +18,26 @@ A movie tracker application built with the MEAN stack.
 
 ## Project structure
 
-TODO
-
+```html
+- public/
+-------- app/ <!-- Angular components -->
+------------ controllers/ <!-- Angular controllers -->
+------------ directives/ <!-- Angular directives -->
+------------ services/ <!-- Angular services -->
+------------ views/ <!-- Angular partials -->
+------------ app.js <!-- Angular application -->
+-------- assets/ <!-- Images, css, static files -->
+-------- vendor/ <!-- Bower packages -->
+-------- index.html <!-- Entry point -->
+- server/
+-------- config/ <!-- Express/Mongoose configuration -->
+-------- controllers/ <!-- Server controllers -->
+-------- models/ <!-- MongoDB models -->
+- .bowerrc <!-- Tells bower where to put files (public/assets/vendor) -->
+- bower.json <!-- Bower dependencies -->
+- package.json <!-- Node.js dependencies -->
+- server.js <!-- Node application set up / entry -->
+```
 
 ## Commit message
 
