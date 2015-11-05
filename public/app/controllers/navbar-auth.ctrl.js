@@ -12,6 +12,8 @@ angular.module('app')
 
         vm.loggedUser = {};
 
+        vm.isLoggedIn = AuthService.isLoggedIn;
+
         vm.authenticate = function(username, password) {
             AuthService.login(username, password)
                 .then(function(user) {
@@ -22,6 +24,7 @@ angular.module('app')
                 });
         };
 
-        vm.isLoggedIn = AuthService.isLoggedIn;
+        vm.logout = AuthService.logout;
+
 
     });

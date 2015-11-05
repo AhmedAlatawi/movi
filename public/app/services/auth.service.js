@@ -50,7 +50,12 @@ angular.module('app')
         }
 
         function logout() {
-            // TODO
+            if (user) {
+                $http.get('/logout')
+                    .success(function() {
+                        user = null;
+                    });
+            }
         }
 
         function register() {
