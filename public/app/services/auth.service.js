@@ -76,7 +76,7 @@ angular.module('app')
                     }
                 })
                 .error(function(data) {
-                   deferred.reject(data.msg);
+                    deferred.reject(data.msg);
                 });
 
             return deferred.promise;

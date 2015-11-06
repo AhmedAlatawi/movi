@@ -12,7 +12,17 @@ module.exports = function(app) {
        res.redirect('/');
     });
 
-    app.post('/register', user.createUser);
+    app.post('/register', function(req, res, next) {
+        user.createUser(req.body, function (msg) {
+            res.status(400).send({
+                success: false,
+                msg: msg
+            });
+        });
+        res.send({
+            success: true
+        });
+    });
 
     app.get('/logged-user', function(req, res) {
        res.json(req.user);
