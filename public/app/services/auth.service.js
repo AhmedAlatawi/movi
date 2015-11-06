@@ -2,9 +2,21 @@
 
 angular.module('app')
     .service('authService', function($http, $q, $state) {
-        var service = this;
+        var service = this,
+            deferred = $q.defer();
 
         service.loggedUser = null;
+
+        // Observer pattern with promises
+        service.observeLoggedUser = function() {
+            return deferred.promise;
+        };
+
+        service.setLoggedUser = function(user) {
+            service.loggedUser = user;
+            deferred.notify(service.loggedUser);
+        };
+
 
         service.isLoggedIn = function() {
             return !!service.loggedUser;
@@ -16,7 +28,7 @@ angular.module('app')
             if (!service.loggedUser) {
                 $http.get('/logged-user')
                     .success(function(data) {
-                        service.loggedUser = data;
+                        service.setLoggedUser(data);
                         deferred.resolve(service.loggedUser);
                     });
             }
@@ -29,10 +41,10 @@ angular.module('app')
             $http.post('/login', {username: username, password: password})
                 .success(function(data) {
                     if (data.success) {
-                        service.loggedUser = data.user;
+                        service.setLoggedUser(data.user);
                         $state.go('tracker');
 
-                        deferred.resolve(service.loggedUser);
+                        deferred.resolve();
                     } else {
                         deferred.reject();
                     }
@@ -48,7 +60,7 @@ angular.module('app')
             if (service.loggedUser) {
                 $http.get('/logout')
                     .success(function() {
-                        service.loggedUser = null;
+                        service.setLoggedUser(null);
                     });
             }
         };
@@ -60,7 +72,6 @@ angular.module('app')
                 .success(function(data) {
                     if (data.success) {
                         service.login(userData.username, userData.password);
-                        service.loggedUser = userData;
                         deferred.resolve();
                     }
                 })
