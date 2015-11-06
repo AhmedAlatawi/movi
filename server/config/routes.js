@@ -14,13 +14,16 @@ module.exports = function(app) {
 
     app.post('/register', function(req, res, next) {
         user.createUser(req.body, function (msg) {
-            res.status(400).send({
-                success: false,
-                msg: msg
-            });
-        });
-        res.send({
-            success: true
+            if (msg) {
+                res.status(400).send({
+                    success: false,
+                    msg: msg
+                });
+            } else {
+                res.send({
+                    success: true
+                });
+            }
         });
     });
 
