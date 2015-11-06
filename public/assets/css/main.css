@@ -32,6 +32,11 @@ main {
   background-color: #c7254e;
   top: 12px;
 }
+.error-msg {
+  color: #c7254e;
+  font-weight: 400;
+  font-size: 1.2em;
+}
 .navbar-default {
   background-color: #fff;
   border: 0;

@@ -13,6 +13,10 @@ angular.module('app')
                 passwordCheck: passwordcheck
             }).then(function() {
                 toastrService.success('You have successfully signed up.', 'Success!')
+            }, function(msg) {
+                vm.errorMessage = msg;
             });
-        }
+        };
+
+        vm.errorMessage = null;
     });

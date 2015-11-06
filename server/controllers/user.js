@@ -5,24 +5,6 @@ var User = require('../models/user');
 exports.createUser = function(req, res) {
     var userData = req.body;
 
-    User.findOne({ username: userData.username }, function(err, user) {
-        if (user) {
-            res.status(400);
-            return res.send({
-                success: false,
-                msg: 'Error: username already taken!'
-            });
-        }
-    });
-    User.findOne({ email: userData.email }, function(err, user) {
-        if (user) {
-            res.status(400);
-            return res.send({
-                success: false,
-                msg: 'Error: email already taken!'
-            });
-        }
-    });
     if (userData.password !== userData.passwordCheck) {
         res.status(400);
         return res.send({
@@ -31,14 +13,36 @@ exports.createUser = function(req, res) {
         });
     }
 
-    User.create(userData, function(err) {
-        if (err) {
+    // TODO: clean up this horrible code!
+    User.findOne({ username: userData.username }, function(err, user) {
+        if (user) {
             res.status(400);
             return res.send({
                 success: false,
-                msg: 'Error: entered passwords does not match!'
+                msg: 'Error: username already taken!'
+            });
+        } else {
+            User.findOne({ email: userData.email }, function(err, user) {
+                if (user) {
+                    res.status(400);
+                    return res.send({
+                        success: false,
+                        msg: 'Error: email already taken!'
+                    });
+                } else {
+                    User.create(userData, function(err) {
+                        if (err) {
+                            res.status(400);
+                            return res.send({
+                                success: false,
+                                msg: 'Error: could not sign up. Please try again later!'
+                            });
+                        }
+                        res.send({ success: true });
+                    });
+                }
             });
         }
-        res.send({ success: true });
     });
+
 };
