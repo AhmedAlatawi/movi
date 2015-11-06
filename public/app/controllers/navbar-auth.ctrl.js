@@ -1,21 +1,21 @@
 "use strict";
 
 angular.module('app')
-    .controller('NavbarAuthCtrl', function(AuthService, toastrService) {
+    .controller('NavbarAuthCtrl', function(authService, toastrService) {
         var vm = this;
 
         //  Verify if a session is opened first of all
-        AuthService.getLoggedUser()
+        authService.getLoggedUser()
             .then(function(user) {
                 vm.loggedUser = user;
             });
 
-        vm.loggedUser = {};
+        vm.loggedUser = authService.loggedUser;
 
-        vm.isLoggedIn = AuthService.isLoggedIn;
+        vm.isLoggedIn = authService.isLoggedIn;
 
         vm.authenticate = function(username, password) {
-            AuthService.login(username, password)
+            authService.login(username, password)
                 .then(function(user) {
                     vm.loggedUser = user;
                     toastrService.success('You have successfully logged in.', 'Success!');
@@ -25,7 +25,7 @@ angular.module('app')
                 });
         };
 
-        vm.logout = AuthService.logout;
+        vm.logout = authService.logout;
 
 
     });

@@ -1,45 +1,38 @@
 "use strict";
 
 angular.module('app')
-    .factory('AuthService', function($http, $q, $state) {
+    .service('authService', function($http, $q, $state) {
+        var service = this;
 
-        var user = null;
+        service.loggedUser = null;
 
-        return ({
-            isLoggedIn: isLoggedIn,
-            getLoggedUser: getLoggedUser,
-            login: login,
-            logout: logout,
-            register: register
-        });
+        service.isLoggedIn = function() {
+            return !!service.loggedUser;
+        };
 
-        function isLoggedIn() {
-            return !!user;
-        }
-
-        function getLoggedUser() {
+        service.getLoggedUser = function() {
             var deferred = $q.defer();
 
-            if (!user) {
+            if (!service.loggedUser) {
                 $http.get('/logged-user')
                     .success(function(data) {
-                        user = data;
-                        deferred.resolve(user);
+                        service.loggedUser = data;
+                        deferred.resolve(service.loggedUser);
                     });
             }
             return deferred.promise;
-        }
+        };
 
-        function login(username, password) {
+        service.login = function(username, password) {
             var deferred = $q.defer();
 
             $http.post('/login', {username: username, password: password})
                 .success(function(data) {
                     if (data.success) {
-                        user = data.user;
+                        service.loggedUser = data.user;
                         $state.go('tracker');
 
-                        deferred.resolve(user);
+                        deferred.resolve(service.loggedUser);
                     } else {
                         deferred.reject();
                     }
@@ -49,24 +42,26 @@ angular.module('app')
                 });
 
             return deferred.promise;
-        }
+        };
 
-        function logout() {
-            if (user) {
+        service.logout = function() {
+            if (service.loggedUser) {
                 $http.get('/logout')
                     .success(function() {
-                        user = null;
+                        service.loggedUser = null;
                     });
             }
-        }
+        };
 
-        function register(userData) {
+        service.register = function(userData) {
             var deferred = $q.defer();
 
             $http.post('/register', userData)
                 .success(function(data) {
                     if (data.success) {
-                        login(userData.username, userData.password);
+                        service.login(userData.username, userData.password);
+                        service.loggedUser = userData;
+                        deferred.resolve();
                     }
                 })
                 .error(function() {
@@ -74,5 +69,5 @@ angular.module('app')
                 });
 
             return deferred.promise;
-        }
+        };
     });
