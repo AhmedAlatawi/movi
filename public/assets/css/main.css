@@ -104,3 +104,37 @@ main {
   font-size: 1.4em;
   margin-top: 24px;
 }
+.expandable {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: width 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out;
+  -o-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+  width: 80%;
+  border: 1px solid #c7254e;
+}
+.expandable:hover {
+  width: 100%;
+  border: 1px solid #c7254e;
+  box-shadow: inset 0 0 0, #fff 0 0 8px #c7254e;
+}
+.search-bar {
+  outline: none !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.search-bar:focus {
+  border: none;
+  outline: 0;
+}
+.search-btn {
+  background: none !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}

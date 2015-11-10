@@ -12,6 +12,24 @@ transform-rotate(degrees)
   -ms-transform rotate(degrees)
   transform rotate(degrees)
 
+border-radius(pix)
+  -webkit-border-radius: pix
+  -moz-border-radius: pix
+  border-radius: pix
+
+ease-in-out(sec)
+  -webkit-transition: width  sec ease-in-out
+  -moz-transition:width  sec ease-in-out
+  -o-transition: width  sec ease-in-out
+  transition: width  sec ease-in-out
+
+reset-border()
+  border none !important
+  -webkit-box-shadow none !important
+  -moz-box-shadow none !important
+  box-shadow none !important
+
+
 
 //--------------------------------
 // General styles
@@ -123,3 +141,33 @@ main
 .empty-message
   font-size 1.4em
   margin-top 24px
+
+
+
+//--------------------------------
+// Search styles
+//--------------------------------
+
+
+.expandable
+  border-radius(5px)
+  ease-in-out(0.2s)
+  width 80%
+  border 1px solid brand-color
+
+.expandable:hover
+  width: 100%
+  border 1px solid brand-color
+  box-shadow inset 0 0 0, white 0 0 8px brand-color
+
+.search-bar
+  outline: none !important
+  reset-border()
+
+.search-bar:focus
+  border: none
+  outline 0
+
+.search-btn
+  background none !important
+  reset-border()
