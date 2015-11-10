@@ -42,7 +42,7 @@ angular.module('app')
                 .success(function(data) {
                     if (data.success) {
                         service.setLoggedUser(data.user);
-                        $state.go('tracker');
+                        $state.go('tracked');
 
                         deferred.resolve();
                     } else {
