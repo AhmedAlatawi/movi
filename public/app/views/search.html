@@ -16,6 +16,12 @@
         <h5>{{ movie.title }}</h5>
         <p >{{ movie.genres }}</p>
         <p class="small">{{ movie.description }}</p>
+        <span class="btn">
+        <i class="glyphicon glyphicon-list-alt "
+           ng-click="searchCtrl.getMovies(query)">
+        </i>
+        TRACK
+      </span>
       </div>
     </div>
     <hr/>

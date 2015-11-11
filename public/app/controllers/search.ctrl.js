@@ -10,7 +10,7 @@ angular.module('app')
         vm.getMovies = function (query) {
             vm.moviesCollection = [];
             vm.errorMessage = null;
-            
+
             movieService.getMoviesbyTitle(query)
                 .then(function(result) {
                    vm.moviesCollection = result;
@@ -18,5 +18,4 @@ angular.module('app')
                     vm.errorMessage = msg;
                 });
         };
-
     });
