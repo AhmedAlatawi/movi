@@ -8,6 +8,9 @@ angular.module('app')
         vm.errorMessage = null;
 
         vm.getMovies = function (query) {
+            vm.moviesCollection = [];
+            vm.errorMessage = null;
+            
             movieService.getMoviesbyTitle(query)
                 .then(function(result) {
                    vm.moviesCollection = result;
