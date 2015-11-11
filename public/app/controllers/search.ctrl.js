@@ -3,14 +3,16 @@ angular.module('app')
         var vm = this;
 
 
-        vm.movieCollection = [];
+        vm.moviesCollection = [];
+
+        vm.errorMessage = null;
 
         vm.getMovies = function (query) {
             movieService.getMoviesbyTitle(query)
                 .then(function(result) {
-                   console.log(result)
-                }, function() {
-                    console.log('error');
+                   vm.moviesCollection = result;
+                }, function(msg) {
+                    vm.errorMessage = msg;
                 });
         };
 

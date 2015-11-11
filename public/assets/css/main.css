@@ -36,6 +36,7 @@ main {
   color: #c7254e;
   font-weight: 400;
   font-size: 1.2em;
+  padding-top: 24px;
 }
 .navbar-default {
   background-color: #fff;
@@ -137,4 +138,17 @@ main {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
+}
+.movies {
+  padding: 24px 0;
+  list-style: none;
+}
+.movies li {
+  margin: 0;
+}
+.movie-preview img {
+  padding-top: 12px;
+}
+.movie-preview .small {
+  font-size: 0.9em;
 }

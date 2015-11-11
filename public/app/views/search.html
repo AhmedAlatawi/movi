@@ -7,3 +7,17 @@
         </i>
     </span>
 </div>
+<p class="error-msg" ng-show="!!searchCtrl.errorMessage">{{ searchCtrl.errorMessage }}</p>
+<ul ng-repeat="movie in searchCtrl.moviesCollection" class="movies">
+  <li>
+    <div class="row movie-preview">
+      <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="col-xs-4"/>
+      <div class="col-xs-8">
+        <h5>{{ movie.title }}</h5>
+        <p >{{ movie.genres }}</p>
+        <p class="small">{{ movie.description }}</p>
+      </div>
+    </div>
+    <hr/>
+  </li>
+</ul>

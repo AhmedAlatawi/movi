@@ -63,7 +63,7 @@ angular.module('app')
                 }
             });
 
-            return genres;
+            return genres.join(", ");
         }
 
         function createPosterUrl(path, size) {
