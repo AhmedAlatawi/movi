@@ -37,7 +37,7 @@ angular.module('app')
                                 id: movie.id,
                                 title: movie.original_title,
                                 description: movie.overview,
-                                poster_url: createPosterUrl(movie.poster_path, POSTER_SIZE_CODES.LARGE),
+                                posterUrl: createPosterUrl(movie.poster_path, POSTER_SIZE_CODES.LARGE),
                                 genres: parseGenres(movie.genre_ids)
                             });
                         });

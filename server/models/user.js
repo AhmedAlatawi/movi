@@ -8,8 +8,8 @@ var userSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     salt: String,
-    watched_movies: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
-    tracked_movies: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
+    watchedMovies: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
+    trackedMovies: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
     createdAt: { type: Date, default: Date.now }
 });
 

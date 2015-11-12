@@ -8,18 +8,16 @@
     </span>
 </div>
 <p class="error-msg" ng-show="!!searchCtrl.errorMessage">{{ searchCtrl.errorMessage }}</p>
-<ul ng-repeat="movie in searchCtrl.moviesCollection" class="movies">
+<ul class="movies" ng-repeat="movie in searchCtrl.moviesCollection" ng-show="searchCtrl.moviesCollection.length > 0">
   <li>
     <div class="row movie-preview">
-      <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="col-xs-4"/>
+      <img ng-src="{{ movie.posterUrl  }}" alt="{{ movie.title }}" class="col-xs-4">
       <div class="col-xs-8">
         <h5>{{ movie.title }}</h5>
         <p >{{ movie.genres }}</p>
         <p class="small">{{ movie.description }}</p>
-        <span class="btn">
-        <i class="glyphicon glyphicon-list-alt "
-           ng-click="searchCtrl.getMovies(query)">
-        </i>
+        <span class="btn" ng-click="searchCtrl.addToTracked($index)">
+        <i class="glyphicon glyphicon-list-alt "></i>
         TRACK
       </span>
       </div>

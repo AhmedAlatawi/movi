@@ -1,7 +1,7 @@
 "use strict";
 
 var User = require('../models/user');
-var Movie = require('../models/movies.js');
+var Movie = require('../models/movie');
 
 
 exports.createUser = function(userData, callback) {

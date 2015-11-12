@@ -31,8 +31,8 @@ module.exports = function(app) {
        res.json(req.user);
     });
 
-    app.get('/add-tracked', function (req, res) {
-        movies.addToTracked(req.body.username, req.body.movieData, function(msg) {
+    app.post('/add-tracked', function (req, res) {
+        users.addToTracked(req.body.username, req.body.movieData, function(msg) {
             if (msg) {
                 res.status(400).send({
                     success: false,
@@ -43,7 +43,7 @@ module.exports = function(app) {
                     success: true
                 });
             }
-        })
+        });
     });
 
     app.get('*', function(req, res) {

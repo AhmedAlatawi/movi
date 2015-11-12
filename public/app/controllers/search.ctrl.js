@@ -18,4 +18,8 @@ angular.module('app')
                     vm.errorMessage = msg;
                 });
         };
+
+        vm.addToTracked = function(index) {
+            console.log('index:', index);
+        }
     });
