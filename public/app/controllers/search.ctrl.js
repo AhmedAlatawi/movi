@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('SearchCtrl', function(movieService, userService, authService) {
+    .controller('SearchCtrl', function(movieService, userService, authService, toastrService) {
         var vm = this;
 
 
@@ -22,9 +22,9 @@ angular.module('app')
         vm.addToTracked = function(index) {
             userService.addToTracked(authService.loggedUser.username, vm.moviesCollection[index])
                 .then(function () {
-                    console.log('Success');
+                    toastrService.success('Movie successfully added to your collection.', 'Success!');
                 }, function(msg) {
-                    console.log(msg);
+                    toastrService.error(msg, 'Error!');
                 });
         }
     });

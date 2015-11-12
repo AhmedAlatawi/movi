@@ -31,12 +31,15 @@ exports.createUser = function(userData, callback) {
 exports.addToTracked = function (username, movieData, callback) {
     User.findOne({ username: username}, function(err, user) {
         if (err) {
+            callback('User not found.');
         } else {
             Movie.findOrCreate(movieData, function (err, movie) {
                 if (err) {
+                    callback('Could not track this movie.');
                 } else {
                     user.trackedMovies.push(movie);
                     user.save();
+
                     callback(null);
                 }
             });
