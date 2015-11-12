@@ -1,6 +1,8 @@
 "use strict";
 
 var User = require('../models/user');
+var Movie = require('../models/movies.js');
+
 
 exports.createUser = function(userData, callback) {
     if (userData.password !== userData.passwordCheck) {
@@ -22,6 +24,19 @@ exports.createUser = function(userData, callback) {
         } else {
             callback(null);
         }
+    });
+};
 
+
+exports.addToTracked = function (username, movieData, callback) {
+    User.findOne({ username: username}, function(err, user) {
+        if (err) {
+            callback('User not found');
+        } else {
+            Movie.findOrCreate(movieData, function (err, movie) {
+                user.tracked_movies.push(movie._id);
+                callback(null)
+            });
+        }
     });
 };
