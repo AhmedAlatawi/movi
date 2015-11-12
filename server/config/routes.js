@@ -1,7 +1,7 @@
 "use strict";
 
-var auth = require('../controllers/auth.js'),
-    user = require('../controllers/user.js');
+var auth = require('../controllers/auth.ctrl.js'),
+    user = require('../controllers/users.ctrl.js');
 
 module.exports = function(app) {
 
