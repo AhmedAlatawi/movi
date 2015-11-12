@@ -67,6 +67,9 @@ angular.module('app')
         }
 
         function createPosterUrl(path, size) {
+            if (path == null) {
+                return '../../assets/img/poster_not_found.png';
+            }
             return POSTER_BASE_PATH + size + path;
         }
     });
