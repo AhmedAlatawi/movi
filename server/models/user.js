@@ -8,16 +8,12 @@ var userSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     salt: String,
-    createdAt: Date
+    watched_movies: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
+    tracked_movies: [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
+    createdAt: { type: Date, default: Date.now }
 });
 
 userSchema.pre('save', function(next) {
-    // Create date
-    var currentDate = new Date();
-    if (!this.createdAt) {
-        this.createdAt = currentDate;
-    }
-
     // Hash password
     this.salt = encrypt.createSalt();
     this.password = encrypt.hashPassword(this.salt,  this.password);
