@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    findOrCreate = require('mongoose-findorcreate'),
+    Schema = mongoose.Schema;
 
 var movieSchema = new Schema({
     id: { type: String, required: true },
@@ -9,6 +10,7 @@ var movieSchema = new Schema({
     posterUrl: { type: String, required: true },
     createdAt: { type: Date, default: Date.now }
 });
+movieSchema.plugin(findOrCreate);
 
 var Movie = mongoose.model('Movie', movieSchema);
 

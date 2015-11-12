@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('SearchCtrl', function(movieService) {
+    .controller('SearchCtrl', function(movieService, userService, authService) {
         var vm = this;
 
 
@@ -20,6 +20,11 @@ angular.module('app')
         };
 
         vm.addToTracked = function(index) {
-            console.log('index:', index);
+            userService.addToTracked(authService.loggedUser.username, vm.moviesCollection[index])
+                .then(function () {
+                    console.log('Success');
+                }, function(msg) {
+                    console.log(msg);
+                });
         }
     });

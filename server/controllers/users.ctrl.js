@@ -1,7 +1,7 @@
 "use strict";
 
-var User = require('../models/user');
-var Movie = require('../models/movie');
+var User = require('../models/user'),
+    Movie = require('../models/movie');
 
 
 exports.createUser = function(userData, callback) {
@@ -31,12 +31,24 @@ exports.createUser = function(userData, callback) {
 exports.addToTracked = function (username, movieData, callback) {
     User.findOne({ username: username}, function(err, user) {
         if (err) {
-            callback('User not found');
         } else {
             Movie.findOrCreate(movieData, function (err, movie) {
-                user.tracked_movies.push(movie._id);
-                callback(null)
+                if (err) {
+                } else {
+                    user.trackedMovies.push(movie);
+                    user.save();
+                    callback(null);
+                }
             });
         }
     });
+
+    /*
+    User
+        .findOne({ username: username })
+        .populate('trackedMovies')
+        .exec(function(err, user) {
+           console.log(user.trackedMovies);
+        });
+    */
 };

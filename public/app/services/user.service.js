@@ -20,5 +20,7 @@ angular.module('app')
                         deferred.reject(response.data.msg);
                     }
                 });
+
+            return deferred.promise;
         };
     });
