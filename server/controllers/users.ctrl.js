@@ -55,7 +55,12 @@ exports.addToTracked = function (username, movieData, callback) {
 exports.getTracked = function (username, callback) {
     User
         .findOne({ username: username })
-        .populate('trackedMovies')
+        .populate({
+            path: 'trackedMovies',
+            options: {
+                sort: { 'createdAt': -1 }
+            }
+        })
         .exec(function(err, user) {
             if(err) {
                 callback(null, 'An error has occurred while loading tracked movies.')

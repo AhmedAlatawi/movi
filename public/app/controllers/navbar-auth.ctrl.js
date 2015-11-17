@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('app')
-    .controller('NavbarAuthCtrl', function(authService, toastrService) {
+    .controller('NavbarAuthCtrl', function(authService, toastrService, $state) {
         var vm = this;
 
         vm.loggedUser = null;
@@ -23,6 +23,7 @@ angular.module('app')
             authService.login(username, password)
                 .then(function() {
                     toastrService.success('You have successfully logged in.', 'Success!');
+                    $state.go('tracked');
                 })
                 .catch(function() {
                     toastrService.error('Please check your credentials.', 'Something went wrong!');
