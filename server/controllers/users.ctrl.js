@@ -36,6 +36,10 @@ exports.addToTracked = function (username, movieData, callback) {
             Movie.findOrCreate(movieData, function (err, movie) {
                 if (err) {
                     callback('Could not track this movie.');
+                } else if (user.trackedMovies.indexOf(movie._id) > - 1) {
+                    callback('Already tracked movie!');
+                } else if (user.watchedMovies.indexOf(movie._id) > - 1) {
+                    callback('Already watched movie!');
                 } else {
                     user.trackedMovies.push(movie);
                     user.save();
