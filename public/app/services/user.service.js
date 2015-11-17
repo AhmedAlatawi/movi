@@ -23,4 +23,24 @@ angular.module('app')
 
             return deferred.promise;
         };
+
+
+        service.getTracked = function(username) {
+            var deferred = $q.defer();
+
+            $http.post('/get-tracked', {
+                username: username
+            })
+                .then(function (response) {
+                    if (response.data.success) {
+                        deferred.resolve(response.data.trackedMovies);
+                    }
+                }, function(response) {
+                    if (!response.data.success) {
+                        deferred.reject(response.data.msg);
+                    }
+                });
+
+            return deferred.promise;
+        }
     });

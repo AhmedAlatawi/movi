@@ -29,6 +29,6 @@ angular.module('app', ['ngAnimate', 'ui.router', 'toastr'])
                 controller: 'SignupCtrl as signupCtrl'
             });
 
-        $urlRouterProvider.otherwise('/search');
+        $urlRouterProvider.otherwise('/tracked');
 
 });

@@ -4,7 +4,27 @@
     <h4>WATCHED</h4>
   </a>
 </div>
-<p class="empty-message">
+<p class="empty-message" ng-hide="trackedCtrl.trackedMovies.length > 0">
   It's lonely here! <a href="" ui-sref="search">Search</a> for a movie and
   add it to your list.
 </p>
+<div ng-show="trackedCtrl.trackedMovies.length > 0">
+  <a href="" ui-sref="search">
+    <i class="glyphicon glyphicon-plus"></i>
+    Add movie
+  </a>
+  <ul class="movies" ng-repeat="movie in trackedCtrl.trackedMovies"
+      >
+    <li>
+      <div class="row movie-preview">
+        <img ng-src="{{ movie.posterUrl  }}" alt="{{ movie.title }}" class="col-xs-4">
+        <div class="col-xs-8">
+          <h5>{{ movie.title }}</h5>
+          <p >{{ movie.genres }}</p>
+          <p class="small">{{ movie.description }}</p>
+        </div>
+      </div>
+      <hr/>
+    </li>
+  </ul>
+</div>

@@ -45,13 +45,18 @@ exports.addToTracked = function (username, movieData, callback) {
             });
         }
     });
+};
 
-    /*
+
+exports.getTracked = function (username, callback) {
     User
         .findOne({ username: username })
         .populate('trackedMovies')
         .exec(function(err, user) {
-           console.log(user.trackedMovies);
+            if(err) {
+                callback(null, 'An error has occurred while loading tracked movies.')
+            } else {
+                callback(user.trackedMovies, null);
+            }
         });
-    */
 };

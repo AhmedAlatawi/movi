@@ -15,8 +15,10 @@ var userSchema = new Schema({
 
 userSchema.pre('save', function(next) {
     // Hash password
-    this.salt = encrypt.createSalt();
-    this.password = encrypt.hashPassword(this.salt,  this.password);
+    if (!this.salt) {
+            this.salt = encrypt.createSalt();
+            this.password = encrypt.hashPassword(this.salt,  this.password);
+    }
 
     next();
 });
