@@ -48,6 +48,6 @@ angular.module('app', ['ngAnimate', 'ui.router', 'toastr'])
                 templateUrl: 'app/views/unauthorized.html'
             });
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
 
 });
