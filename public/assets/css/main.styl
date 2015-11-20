@@ -30,7 +30,6 @@ reset-border()
   box-shadow none !important
 
 
-
 //--------------------------------
 // General styles
 //--------------------------------
@@ -39,6 +38,9 @@ body
 
 main
   padding-top 64px
+
+a, a:hover, a:focus
+  text-decoration none
 
 .btn-default
   color white
@@ -114,6 +116,10 @@ main
     display inline-block
     font-size 1.4em
     margin-right 12px
+    color #222
+  .dropdown-menu
+    margin-right 40px
+
 
 // Move the main tag as the dropdown expands
 @media (max-width: 768px)

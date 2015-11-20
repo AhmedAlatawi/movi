@@ -25,7 +25,16 @@
     </li>
   </ul>
   <div class="nav navbar-nav navbar-right logout-nav" ng-show="authCtrl.isLoggedIn()">
-    <p class="small">Hi, {{ authCtrl.loggedUser.username }}!</p>
+    <a href="#" class="dropdown-toggle small" data-toggle="dropdown" role="button"
+       aria-haspopup="true" aria-expanded="true">
+      Hi, {{ authCtrl.loggedUser.username }}! <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" >
+      <li>
+        <a href="" ui-sref="tracked">Tracked</a>
+        <a href="" ui-sref="watched">Watched</a>
+      </li>
+    </ul>
     <span class="navbar-btn">
       <a href="" class="btn btn-lg btn-default btn-outline" ng-click="authCtrl.logout()">
         Log Out
