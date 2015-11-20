@@ -28,8 +28,12 @@ angular.module('app')
             if (!service.loggedUser) {
                 $http.get('/logged-user')
                     .success(function(data) {
-                        service.setLoggedUser(data);
-                        deferred.resolve(service.loggedUser);
+                        if(data) {
+                            service.setLoggedUser(data);
+                            deferred.resolve(service.loggedUser);
+                        } else {
+                            deferred.reject();
+                        }
                     });
             }
             return deferred.promise;
