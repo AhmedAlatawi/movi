@@ -84,4 +84,13 @@ angular.module('app')
 
             return deferred.promise;
         };
+
+
+        service.redirectUnauthorized = function () {
+            service.getLoggedUser()
+                .then(function () {
+                }, function() {
+                    $state.go('unauthorized');
+                });
+        }
     });

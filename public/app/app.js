@@ -13,12 +13,8 @@ angular.module('app', ['ngAnimate', 'ui.router', 'toastr'])
                 templateUrl: 'app/views/tracked.html',
                 controller: 'TrackedCtrl as trackedCtrl',
                 resolve: {
-                    authentication: function(authService, $state) {
-                        authService.getLoggedUser()
-                            .then(function () {
-                            }, function() {
-                                $state.go('unauthorized')
-                            });
+                    authentication: function(authService) {
+                        authService.redirectUnauthorized();
                     }
                 }
             })
@@ -27,12 +23,8 @@ angular.module('app', ['ngAnimate', 'ui.router', 'toastr'])
                 templateUrl: 'app/views/watched.html',
                 controller: 'WatchedCtrl as watchedCtrl',
                 resolve: {
-                    authentication: function(authService, $state) {
-                        authService.getLoggedUser()
-                            .then(function () {
-                            }, function() {
-                                $state.go('unauthorized')
-                            });
+                    authentication: function(authService) {
+                        authService.redirectUnauthorized();
                     }
                 }
             })
@@ -41,12 +33,8 @@ angular.module('app', ['ngAnimate', 'ui.router', 'toastr'])
                 templateUrl: 'app/views/search.html',
                 controller: 'SearchCtrl as searchCtrl',
                 resolve: {
-                    authentication: function(authService, $state) {
-                        authService.getLoggedUser()
-                            .then(function () {
-                            }, function() {
-                                $state.go('unauthorized')
-                            });
+                    authentication: function(authService) {
+                        authService.redirectUnauthorized();
                     }
                 }
             })
