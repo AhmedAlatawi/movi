@@ -64,6 +64,7 @@ angular.module('app')
                 $http.get('/logout')
                     .success(function() {
                         service.setLoggedUser(null);
+                        $state.go('home');
                     });
             }
         };
