@@ -1,7 +1,8 @@
 "use strict";
 
 var auth = require('../controllers/auth.ctrl.js'),
-    users = require('../controllers/users.ctrl.js');
+    users = require('../controllers/users.ctrl.js'),
+    movies = require('../controllers/home.ctrl.js');
 
 module.exports = function(app) {
 
@@ -63,7 +64,18 @@ module.exports = function(app) {
         })
     });
 
+
+    app.get('/get-latest', function (req, res) {
+        movies.getLatestAdded(function (result) {
+            res.json(result);
+        });
+    });
+
+
     app.get('*', function(req, res) {
         res.render('index.html');
     });
+
+
+
 };
