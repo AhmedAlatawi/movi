@@ -61,7 +61,39 @@ module.exports = function(app) {
                     msg: msg
                 });
             }
-        })
+        });
+    });
+
+    app.post('/add-watched', function(req, res) {
+        users.addToWatched(req.body.username, req.body.movieData, function(msg) {
+            if (msg) {
+                res.status(400).send({
+                    success: false,
+                    msg: msg
+                });
+            } else {
+                res.send({
+                    success: true
+                });
+            }
+        });
+    });
+
+
+    app.post('/get-watched', function(req, res) {
+        users.getWatched(req.body.username, function (result, msg) {
+            if (result) {
+                res.send({
+                    success: true,
+                    watchedMovies: result
+                });
+            } else {
+                res.status(400).send({
+                    success: false,
+                    msg: msg
+                });
+            }
+        });
     });
 
 

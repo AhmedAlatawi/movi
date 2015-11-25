@@ -4,16 +4,12 @@
   </a>
   <h4>WATCHED</h4>
 </div>
-<p class="empty-message" ng-hide="trackedCtrl.trackedMovies.length > 0">
+<p class="empty-message" ng-hide="watchedCtrl.watchedMovies.length > 0">
   No movies added yet! <a href="" ui-sref="search">Search</a> for a movie, add it
   to your tracked list and mark it as watched when you've finally saw it.
 </p>
-<div ng-show="trackedCtrl.trackedMovies.length > 0">
-  <a href="" ui-sref="search" class="add-tracked">
-    <i class="glyphicon glyphicon-plus"></i>
-    Track a movie
-  </a>
-  <ul class="movies" ng-repeat="movie in trackedCtrl.trackedMovies"
+<div ng-show="watchedCtrl.watchedMovies.length > 0">
+  <ul class="movies" ng-repeat="movie in watchedCtrl.watchedMovies"
       >
     <li>
       <div class="row movie-preview">

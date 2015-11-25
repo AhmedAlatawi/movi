@@ -22,6 +22,10 @@
           <h5>{{ movie.title }}</h5>
           <p >{{ movie.genres }}</p>
           <p class="small">{{ movie.description }}</p>
+          <span class="btn" ng-click="trackedCtrl.addToWatched($index)">
+        <i class="glyphicon glyphicon-sunglasses"></i>
+            WATCH
+      </span>
         </div>
       </div>
       <hr/>

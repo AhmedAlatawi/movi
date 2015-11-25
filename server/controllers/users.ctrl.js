@@ -69,3 +69,45 @@ exports.getTracked = function (username, callback) {
             }
         });
 };
+
+
+exports.addToWatched = function (username, movieData, callback) {
+    User.findOne({ username: username}, function(err, user) {
+        if (err) {
+            callback('User not found.');
+        } else {
+            Movie.findOrCreate(movieData, function (err, movie) {
+                if (err) {
+                    callback('Could not track this movie.');
+                } else if (user.watchedMovies.indexOf(movie._id) > - 1) {
+                    callback('Already watched movie!');
+                } else {
+                    user.trackedMovies.splice(user.trackedMovies.indexOf(movie._id));
+                    user.watchedMovies.push(movie);
+                    user.save();
+
+                    callback(null);
+                }
+            });
+        }
+    });
+};
+
+
+exports.getWatched = function (username, callback) {
+    User
+        .findOne({ username: username })
+        .populate({
+            path: 'watchedMovies',
+            options: {
+                sort: { 'createdAt': -1 }
+            }
+        })
+        .exec(function(err, user) {
+            if(err) {
+                callback(null, 'An error has occurred while loading watched movies.')
+            } else {
+                callback(user.watchedMovies, null);
+            }
+        });
+};
