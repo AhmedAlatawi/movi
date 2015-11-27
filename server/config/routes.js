@@ -13,7 +13,7 @@ module.exports = function(app) {
        res.redirect('/');
     });
 
-    app.post('/register', function(req, res, next) {
+    app.post('/register', function(req, res) {
         users.createUser(req.body, function (msg) {
             if (msg) {
                 res.status(400).send({
@@ -29,7 +29,11 @@ module.exports = function(app) {
     });
 
     app.get('/logged-user', function(req, res) {
-       res.json(req.user);
+        if(!!req.user) {
+            res.json(req.user.username);
+        } else {
+            res.json(req.user);
+        }
     });
 
     app.post('/add-tracked', function(req, res) {

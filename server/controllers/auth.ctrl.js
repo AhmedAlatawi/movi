@@ -10,7 +10,7 @@ exports.authenticate = function(req, res, next) {
 
         req.login(user, function(err) {
             if (err) { return next(err); }
-            res.send({ success: true, user: user });
+            res.send({ success: true, user: user.username });
         });
     });
     auth(req, res, next);

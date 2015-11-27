@@ -7,7 +7,7 @@ angular.module('app')
         vm.getTracked = function() {
             if (!authService.loggedUser) { return; }
 
-            userService.getTracked(authService.loggedUser.username)
+            userService.getTracked(authService.loggedUser)
                 .then(function (result) {
                     vm.errorMessage = null;
                     vm.trackedMovies = result;
@@ -17,7 +17,7 @@ angular.module('app')
         };
 
         vm.addToWatched = function(index) {
-            userService.addToWatched(authService.loggedUser.username, vm.trackedMovies[index])
+            userService.addToWatched(authService.loggedUser, vm.trackedMovies[index])
                 .then(function () {
                     vm.trackedMovies.splice(index, 1);
                     toastrService.success('Movie successfully added to watched list.', 'Success!');

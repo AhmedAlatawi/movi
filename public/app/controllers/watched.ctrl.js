@@ -9,7 +9,7 @@ angular.module('app')
         vm.getWatched = function() {
             if (!authService.loggedUser) { return; }
 
-            userService.getWatched(authService.loggedUser.username)
+            userService.getWatched(authService.loggedUser)
                 .then(function (result) {
                     vm.errorMessage = null;
                     vm.watchedMovies = result;

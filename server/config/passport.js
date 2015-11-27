@@ -20,14 +20,14 @@ module.exports = function() {
         }
     ));
 
-    passport.serializeUser(function(user, done) {
-        done(null, user._id);
+    passport.serializeUser(function(username, done) {
+        done(null, username);
     });
 
-    passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user){
+    passport.deserializeUser(function(username, done) {
+        User.findOne({ username: username}, function(err){
             if(!err) {
-                done(null, user);
+                done(null, username);
             } else {
                 done(err, null);
             }

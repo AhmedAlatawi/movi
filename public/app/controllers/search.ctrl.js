@@ -20,7 +20,7 @@ angular.module('app')
         };
 
         vm.addToTracked = function(index) {
-            userService.addToTracked(authService.loggedUser.username, vm.moviesCollection[index])
+            userService.addToTracked(authService.loggedUser, vm.moviesCollection[index])
                 .then(function () {
                     toastrService.success('Movie successfully added to your collection.', 'Success!');
                 }, function(msg) {
